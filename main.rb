@@ -1,0 +1,30 @@
+require './Calculator'
+
+calculator = Calculator.new
+
+name = calculator.greeting
+run_calculator = 1
+
+while run_calculator == 1
+
+  current_calculation = calculator.request_calculation_type
+  if current_calculation == 'error'
+    puts 'I do not understand this type of calculation... Can we try again?'
+  else
+    puts "\nWhat is the first number you "\
+         "would you like to #{current_calculation}: "
+    first_number = gets.to_i
+    puts "\nWhat is the second number you "\
+         "would like to #{current_calculation}: "
+    second_number = gets.to_i
+
+    answer = calculator.calculate_answer(
+      current_calculation, first_number, second_number
+    )
+
+    puts "\nYour answer is #{answer}"
+    puts "\nType 1 to run another calcution or 2 to end: "
+    run_calculator = gets.to_i
+  end
+end
+puts "\nBye #{name}"
