@@ -1,4 +1,4 @@
-require './Calculator'
+require './calculator'
 
 calculator = Calculator.new
 
